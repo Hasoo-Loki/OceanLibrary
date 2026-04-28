@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: oceanlibrary
+    env: php
+    plan: free
+    buildCommand: "composer install && php artisan storage:link"
+    startCommand: "php -S 0.0.0.0:${PORT} -t ./public"
+    envVars:
+      - key: APP_NAME
+        value: OceanLibrary
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        value: base64:odH5Zyn8LMmr4W09BIbmR1ctFHOCxNAR+OEquh2mnfE=
+      - key: APP_URL
+        fromService:
+          name: oceanlibrary
+          property: url
+      - key: LOG_CHANNEL
+        value: stderr
