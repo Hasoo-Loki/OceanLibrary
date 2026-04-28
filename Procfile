@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 public/
+web: php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-3000} -t ./public
