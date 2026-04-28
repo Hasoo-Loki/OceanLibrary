@@ -1,1 +1,1 @@
-web: php -d variables_order=EGPCS -S 0.0.0.0:${PORT:-3000} -t ./public
+web: sh heroku-buildpack-php/bin/boot.sh
